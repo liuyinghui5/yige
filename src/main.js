@@ -12,8 +12,6 @@ import 'swiper/dist/css/swiper.css';
 import _ from 'lodash'
 // import $ from 'jquery'
 
-import * as PIXI from 'pixi.js'
-
 // var VueTouch = require('vue-touch')
 // Vue.use(VueTouch, {name: 'v-touch'})
 
