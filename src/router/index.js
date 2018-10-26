@@ -7,7 +7,7 @@ import three from '@/pages/three'
 import four from '@/pages/four'
 import lodash from '@/pages/lodash'
 import scroll from '@/pages/scrollIntoView'
-
+import tab from '@/pages/tabChange'
 Vue.use(Router)
 
 export default new Router({
@@ -40,6 +40,10 @@ export default new Router({
 			path: '/scroll',
 			name: 'scroll',
 			component: scroll
+		}, {
+			path: '/tab',
+			name: 'tab',
+			component: tab
 		}
 	]
 })

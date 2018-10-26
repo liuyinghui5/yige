@@ -35,6 +35,7 @@
 			<img src="../assets/scrollTest/5.png" class="t">
 			<img src="../assets/scrollTest/1.jpg" class="y">
 		</div>
+		<backHomePage></backHomePage>
 	</div>
 </template>
 

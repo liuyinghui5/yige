@@ -1,4 +1,10 @@
-<style scoped>
+<style scoped lang="less">
+	.helloWorld {
+		text-align: center;
+	}
+	#indexLogo {
+		width: 200px;
+	}
 	.bank {
 		width: 30px;
 		height: 30px;
@@ -16,18 +22,35 @@
 		margin: 0 auto;
 		/*border: 1px solid black;*/
 	}
+	.router {
+		border: 4px solid dodgerblue;
+		position: fixed;
+		left: 0;
+		top: 10px;
+		text-align: left;
+		background-color: deepskyblue;
+		z-index: 999;
+		p {
+			padding: 5px 0;
+			color: white;
+			font-size: 12px;
+		}
+	}
 </style>
 
 <template>
-	<div class="fter">
+	<div class="helloWorld">
+		<img id="indexLogo" src="../assets/logo.jpg" alt="">
+
 		<!--路由跳转-->
-		<div style="border: 10px solid blue">
-			<p>路由跳转:</p>
-			<p @click="jump(1)">点击跳转到one页面</p>
-			<p @click="jump(2)">点击跳转到two页面测试vuex</p>
-			<p @click="jump(3)">点击跳转到three页面测试轮播图和数组判断下标删除</p>
-			<p @click="jump(4)">点击跳转到four页面测试iview表格</p>
-			<p @click="jump(5)">点击跳转到scroll页面测试scrollIntoView锚点</p>
+		<div class="router">
+			<h2>路由跳转:</h2>
+			<p @click="jump(1)">跳转到one页面</p>
+			<p @click="jump(2)">跳转到two页面测试vuex</p>
+			<p @click="jump(3)">跳转到three页面测试轮播图和数组判断下标删除</p>
+			<p @click="jump(4)">跳转到four页面测试iview表格</p>
+			<p @click="jump(5)">跳转到scroll页面测试scrollIntoView锚点</p>
+			<p @click="jump(6)">跳转到Tab切换实现</p>
 
 		</div>
 
@@ -129,6 +152,9 @@
 						break;
 					case 5 :
 						return this.$router.push({path: './scroll'})
+						break;
+					case 6 :
+						return this.$router.push({path: './tab'})
 						break;
 				}
 			}
