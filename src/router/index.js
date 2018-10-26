@@ -6,7 +6,7 @@ import two from '@/pages/two'
 import three from '@/pages/three'
 import four from '@/pages/four'
 import lodash from '@/pages/lodash'
-import scroll from '@/pages/scrollIntoViewTest'
+import scroll from '@/pages/scrollIntoView'
 
 Vue.use(Router)
 
