@@ -25,7 +25,7 @@
 			<div class="go3">go3</div>
 			<div class="go4">go4</div>
 			<div class="go5">go5</div>
-			<div class="go6" @click="jump">go6</div>
+			<div class="go6">go6</div>
 		</div>
 		<div class="content">
 			<img src="../assets/scrollTest/1.jpg" class="q">
@@ -47,9 +47,6 @@
 		},
 		computed: {},
 		methods: {
-			jump() {
-				scrollF('.go6', '.y')
-			}
 		},
 		beforeCreate() {
 		},
@@ -59,6 +56,12 @@
 		},
 		mounted() {
 			scrollF('.go1', '.q')
+			scrollF('.go2', '.w')
+			scrollF('.go3', '.e')
+			scrollF('.go4', '.r')
+			scrollF('.go5', '.t')
+			scrollF('.go6', '.y')
+
 //			const q = document.querySelector('#q');
 //			const go1 = document.querySelector('.go1');
 //			go1.addEventListener('click', function () {
