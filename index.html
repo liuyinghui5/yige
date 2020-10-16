@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
-      <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-      <title>yige</title>
-      <!--头部添加,按比例缩放-->
-      <script>
-          ;(function(){
-          	console.log(11)
-              //缩放比例
-              var defaultW = 375 ;
-              if (/Android (d+.d+)/.test(navigator.userAgent)) {
-                  var version = parseFloat(RegExp.$1);
-                  if (version > 2.3) {
-                      var phoneScale = parseInt(window.screen.width) / defaultW;
-                      document.write('<meta name="viewport" content="width='+defaultW+'", minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
-                  } else {
-                      document.write('<meta name="viewport" content="width='+defaultW+'">');
-                  }
-              } else {
-                  document.write('<meta name="viewport" content="width='+defaultW+', user-scalable=no">');
-              }
-              //写入脚本
-//              document.write( '<script src="./static/config/'+ ( location.host.substr( 0,location.host.indexOf(".") )  ) +'.config.js"><\/script>')
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>yige</title>
+    <!--头部添加,按比例缩放-->
+    <script>
+        ;
+        (function () {
+            console.log('加载了思源按比例缩放Funciton')
+            //缩放比例
+            var defaultW = 375;
+            if (/Android (d+.d+)/.test(navigator.userAgent)) {
+							console.log('加载了思源按比例缩放-Android')
+							var version = parseFloat(RegExp.$1);
+							console.log('version',version)
+							if (version > 2.3) {
+									var phoneScale = parseInt(window.screen.width) / defaultW;
+                    document.write('<meta name="viewport" content="width=' + defaultW + '", minimum-scale = ' +
+                        phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+                } else {
+									document.write('<meta name="viewport" content="width=' + defaultW + '">');
+                }
+            } else {
+							console.log('加载了思源按比例缩放-chrome?')
+							document.write('<meta name="viewport" content="width=' + defaultW + ', user-scalable=no">');
+            }
+            //写入脚本
+            //              document.write( '<script src="./static/config/'+ ( location.host.substr( 0,location.host.indexOf(".") )  ) +'.config.js"><\/script>')
 
-          })();
-      </script>
-  </head>
-  <body>
+        })();
+
+    </script>
+</head>
+
+<body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-  </body>
+</body>
+
 </html>

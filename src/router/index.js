@@ -8,6 +8,7 @@ import four from '@/pages/four'
 import lodash from '@/pages/lodash'
 import scroll from '@/pages/scrollIntoView'
 import tab from '@/pages/tabChange'
+import elementui from '@/pages/elementui'
 Vue.use(Router)
 
 export default new Router({
@@ -44,6 +45,10 @@ export default new Router({
 			path: '/tab',
 			name: 'tab',
 			component: tab
+		}, {
+			path: '/elementui',
+			name: 'elementui',
+			component: elementui
 		}
 	]
 })

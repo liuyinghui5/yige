@@ -15,6 +15,11 @@ import _ from 'lodash'
 // var VueTouch = require('vue-touch')
 // Vue.use(VueTouch, {name: 'v-touch'})
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
+
 Vue.use(iView),
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
@@ -40,3 +45,4 @@ new Vue({
   template: '<App/>'
 })
 
+// console.log('打印的Vue.config ->', Vue.config)
