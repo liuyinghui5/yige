@@ -9,120 +9,122 @@
 	<el-form :model="workorderForm" ref="workorderForm" label-width="100px" class="selectChoseDrawer-item-Form" size="small" :label-position="labelPosition">
 		<!-- ['工单ID','工单标题','工单优先级','工单状态','工单分类','工单受理组','工单受理人','工单关注人','工单创建时间','工单解决时间','用户昵称','用户UID','机型','语言','平台','应用包名','OS版本','SDK版本','网络分类','服务器ID','自定义字段'] -->
 		<!-- 使用循环 判断内层drawer checkbox 选择了那个, 外层drawer对应显示相应 formItem-->
-		<div v-for="(item,index) in checkedEditer" :key="index">
+		<div v-for="(item,index) in EditerListAll" :key="index">
 
-			<!--工单ID-->
-			<el-form-item label="工单ID" prop="field104" v-if="item == '工单ID'">
-				<el-input v-model="workorderForm.field104" placeholder="请输入工单ID" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--工单标题-->
-			<el-form-item label="工单标题" prop="field105" v-if="item == '工单标题'">
-				<el-input v-model="workorderForm.field105" placeholder="请输入工单标题" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--工单优先级-->
-			<el-form-item label="工单优先级" prop="field106" v-if="item == '工单优先级'">
-				<el-select v-model="workorderForm.field106" placeholder="请选择工单优先级" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field106Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--工单状态-->
-			<el-form-item label="工单状态" prop="field107" v-if="item == '工单状态'" >
-				<el-select v-model="workorderForm.field107" placeholder="请选择工单状态" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field107Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--工单分类-->
-			<el-form-item label="工单分类" prop="field108" v-if="item == '工单分类'">
-				<el-select v-model="workorderForm.field108" placeholder="请选择工单分类" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field108Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--工单受理组-->
-			<el-form-item label="工单受理组" prop="field109" v-if="item == '工单受理组'">
-				<el-select v-model="workorderForm.field109" placeholder="请选择工单受理组" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field109Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--工单受理人-->
-			<el-form-item label="工单受理人" prop="field110" v-if="item == '工单受理人'">
-				<el-select v-model="workorderForm.field110" placeholder="请选择工单受理人" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field110Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--工单关注人-->
-			<el-form-item label="工单关注人" prop="field111" v-if="item == '工单关注人'">
-				<el-select v-model="workorderForm.field111" placeholder="请选择工单关注人" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field111Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--工单创建时间-->
-			<el-form-item label="工单创建时间" prop="field112" v-if="item == '工单创建时间'">
-				<el-date-picker type="datetimerange" v-model="workorderForm.field112" :style="{width: '100%'}" start-placeholder="开始日期" end-placeholder="结束日期" range-separator="至" :picker-options="pickerOptions" align="right" clearable></el-date-picker>
-			</el-form-item>
-			<!--工单解决时间-->
-			<el-form-item label="工单解决时间" prop="field113" v-if="item == '工单解决时间'">
-				<el-date-picker type="datetimerange" v-model="workorderForm.field113" :style="{width: '100%'}" start-placeholder="开始日期" end-placeholder="结束日期" range-separator="至" :picker-options="pickerOptions" align="right" clearable></el-date-picker>
-			</el-form-item>
-			<!--用户昵称-->
-			<el-form-item label="用户昵称" prop="field114" v-if="item == '用户昵称'">
-				<el-input v-model="workorderForm.field114" placeholder="请输入用户昵称" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--用户UID-->
-			<el-form-item label="用户UID" prop="field115" v-if="item == '用户UID'">
-				<el-input v-model="workorderForm.field115" placeholder="请输入用户UID" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--机型-->
-			<el-form-item label="机型" prop="field116" v-if="item == '机型'">
-				<el-input v-model="workorderForm.field116" placeholder="请输入机型" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--语言-->
-			<el-form-item label="语言" prop="field117" v-if="item == '语言'">
-				<el-select v-model="workorderForm.field117" placeholder="请选择语言" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field117Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--平台-->
-			<el-form-item label="平台" prop="field118" v-if="item == '平台'">
-				<el-select v-model="workorderForm.field118" placeholder="请选择平台" clearable :style="{width: '100%'}">
-					<el-option v-for="(item, index) in field118Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
-				</el-select>
-			</el-form-item>
-			<!--应用包名-->
-			<el-form-item label="应用包名" prop="field119" v-if="item == '应用包名'">
-				<el-input v-model="workorderForm.field119" placeholder="请输入应用包名" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--OS版本-->
-			<el-form-item label="OS版本" prop="field120" v-if="item == 'OS版本'">
-				<el-input v-model="workorderForm.field120" placeholder="请输入OS版本" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--SDK版本-->
-			<el-form-item label="SDK版本" prop="field121" v-if="item == 'SDK版本'">
-				<el-input v-model="workorderForm.field121" placeholder="请输入SDK版本" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--网络分类-->
-			<el-form-item label="网络分类" prop="field122" v-if="item == '网络分类'">
-				<el-input v-model="workorderForm.field122" placeholder="请输入网络分类" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--服务器ID-->
-			<el-form-item label="服务器ID" prop="field123" v-if="item == '服务器ID'">
-				<el-input v-model="workorderForm.field123" placeholder="请输入服务器ID" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--自定义字段-->
-			<el-form-item label="自定义字段" prop="field124" v-if="item == '自定义字段'">
-				<el-input v-model="workorderForm.field124" placeholder="请输入自定义字段" clearable :style="{width: '100%'}">
-				</el-input>
-			</el-form-item>
-			<!--表单结束-->
+      <template v-if="checkedEditer.indexOf(item) > -1">
+        <!--工单ID-->
+        <el-form-item label="工单ID" prop="field104" v-if="item == '工单ID'">
+          <el-input v-model="workorderForm.field104" placeholder="请输入工单ID" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--工单标题-->
+        <el-form-item label="工单标题" prop="field105" v-if="item == '工单标题'">
+          <el-input v-model="workorderForm.field105" placeholder="请输入工单标题" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--工单优先级-->
+        <el-form-item label="工单优先级" prop="field106" v-if="item == '工单优先级'">
+          <el-select v-model="workorderForm.field106" placeholder="请选择工单优先级" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field106Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--工单状态-->
+        <el-form-item label="工单状态" prop="field107" v-if="item == '工单状态'" >
+          <el-select v-model="workorderForm.field107" placeholder="请选择工单状态" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field107Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--工单分类-->
+        <el-form-item label="工单分类" prop="field108" v-if="item == '工单分类'">
+          <el-select v-model="workorderForm.field108" placeholder="请选择工单分类" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field108Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--工单受理组-->
+        <el-form-item label="工单受理组" prop="field109" v-if="item == '工单受理组'">
+          <el-select v-model="workorderForm.field109" placeholder="请选择工单受理组" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field109Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--工单受理人-->
+        <el-form-item label="工单受理人" prop="field110" v-if="item == '工单受理人'">
+          <el-select v-model="workorderForm.field110" placeholder="请选择工单受理人" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field110Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--工单关注人-->
+        <el-form-item label="工单关注人" prop="field111" v-if="item == '工单关注人'">
+          <el-select v-model="workorderForm.field111" placeholder="请选择工单关注人" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field111Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--工单创建时间-->
+        <el-form-item label="工单创建时间" prop="field112" v-if="item == '工单创建时间'">
+          <el-date-picker type="datetimerange" v-model="workorderForm.field112" :style="{width: '100%'}" start-placeholder="开始日期" end-placeholder="结束日期" range-separator="至" :picker-options="pickerOptions" align="right" clearable></el-date-picker>
+        </el-form-item>
+        <!--工单解决时间-->
+        <el-form-item label="工单解决时间" prop="field113" v-if="item == '工单解决时间'">
+          <el-date-picker type="datetimerange" v-model="workorderForm.field113" :style="{width: '100%'}" start-placeholder="开始日期" end-placeholder="结束日期" range-separator="至" :picker-options="pickerOptions" align="right" clearable></el-date-picker>
+        </el-form-item>
+        <!--用户昵称-->
+        <el-form-item label="用户昵称" prop="field114" v-if="item == '用户昵称'">
+          <el-input v-model="workorderForm.field114" placeholder="请输入用户昵称" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--用户UID-->
+        <el-form-item label="用户UID" prop="field115" v-if="item == '用户UID'">
+          <el-input v-model="workorderForm.field115" placeholder="请输入用户UID" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--机型-->
+        <el-form-item label="机型" prop="field116" v-if="item == '机型'">
+          <el-input v-model="workorderForm.field116" placeholder="请输入机型" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--语言-->
+        <el-form-item label="语言" prop="field117" v-if="item == '语言'">
+          <el-select v-model="workorderForm.field117" placeholder="请选择语言" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field117Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--平台-->
+        <el-form-item label="平台" prop="field118" v-if="item == '平台'">
+          <el-select v-model="workorderForm.field118" placeholder="请选择平台" clearable :style="{width: '100%'}">
+            <el-option v-for="(item, index) in field118Options" :key="index" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+          </el-select>
+        </el-form-item>
+        <!--应用包名-->
+        <el-form-item label="应用包名" prop="field119" v-if="item == '应用包名'">
+          <el-input v-model="workorderForm.field119" placeholder="请输入应用包名" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--OS版本-->
+        <el-form-item label="OS版本" prop="field120" v-if="item == 'OS版本'">
+          <el-input v-model="workorderForm.field120" placeholder="请输入OS版本" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--SDK版本-->
+        <el-form-item label="SDK版本" prop="field121" v-if="item == 'SDK版本'">
+          <el-input v-model="workorderForm.field121" placeholder="请输入SDK版本" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--网络分类-->
+        <el-form-item label="网络分类" prop="field122" v-if="item == '网络分类'">
+          <el-input v-model="workorderForm.field122" placeholder="请输入网络分类" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--服务器ID-->
+        <el-form-item label="服务器ID" prop="field123" v-if="item == '服务器ID'">
+          <el-input v-model="workorderForm.field123" placeholder="请输入服务器ID" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--自定义字段-->
+        <el-form-item label="自定义字段" prop="field124" v-if="item == '自定义字段'">
+          <el-input v-model="workorderForm.field124" placeholder="请输入自定义字段" clearable :style="{width: '100%'}">
+          </el-input>
+        </el-form-item>
+        <!--表单结束-->
+      </template>
 		</div>
 
 		<el-form-item>
