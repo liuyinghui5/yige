@@ -44,7 +44,8 @@
 <template>
 	<!--暂时只启用控制台 ,页面留白-->
 	<!--关于样式变量绑定 :class="{active:topRank==0}"-->
-	<div class="helloWorld" v-show="false">
+	<div class="helloWorld" v-show="true">
+
 		<img id="indexLogo" src="../assets/logo.jpg" alt="">
 
 		<!--路由跳转-->
@@ -56,6 +57,7 @@
 			<p @click="jump(4)">跳转到four页面测试iview表格</p>
 			<p @click="jump(5)">跳转到scroll页面测试scrollIntoView锚点</p>
 			<p @click="jump(6)">跳转到Tab切换实现</p>
+			<p @click="jump(7)">跳转到checkbox 动态变更表单项目 位置不变的问题</p>
 
 		</div>
 
@@ -122,10 +124,13 @@
 
 		</div>
 
+		<div style="border: 1px solid;display: inline-block;width: 50px;margin-left: 50px;transform: skew(20deg, 0deg);"> DIV画平行四边形 </div>
+		<div style="width: 0;height: 0;display: inline-block;border-top: 100px solid transparent;border-bottom: 100px solid green;border-left: 100px solid transparent;border-right: 100px solid transparent;">DIV画三角形</div>
+		<div style="width: 50px;height: 50px;display: inline-block;border: 2px solid red;border-radius: 100%;">DIV画圆</div>
+
 		<p>原格式arr1 {{arr1}}</p>
 		<p>目标格式arr2 {{arr2}}</p>
 		<p>输出格式arr {{arr}}</p>
-
 		<p>输出格式arr4 {{arr4}}</p>
 
 
@@ -185,6 +190,9 @@
 						break;
 					case 6 :
 						return this.$router.push({path: './tab'})
+						break;
+					case 7 :
+						return this.$router.push({path: './elementQA'})
 						break;
 				}
 			},
@@ -408,6 +416,76 @@
 //
 //			console.log('打印的xs ->', xs)
 
+
+			var arr = [3,1,4,6,2];
+			var temp;
+//			for(var i = 0;i<arr.length;i++) {
+//				for(var j = i+1;j<arr.length;j++) {
+//					if(arr[i]<arr[j]) {
+//						temp = arr[i];
+//						arr[i] = arr[j];
+//						arr[j] = temp;
+//					}
+//				}
+//			}
+//			console.log('打印的arr ->', arr)
+//
+////
+//			function dq(arr) {
+//				if(arr.length<1) {return arr}
+//				var midN = Math.floor(arr.length/2);
+//				var mid = arr.splice(midN,1)[0];
+//				var l = [];var r = [];
+//				for(var i = 0;i<arr.length;i++) {
+//					if(arr[i]<mid){l.push(arr[i])}else {r.push(arr[i])}
+//				}
+//				return dq(l).concat([mid],dq(r))
+//			}
+//			var x = dq(arr);
+//			console.log('打印的x ->', x)
+////
+// 			var sortArr = (arr) => arr.reduce((v,item,i,arra)=> {
+//				let b = [];var l = []; var r = []; var mid = arra[Math.floor(arra.length/2)];
+//				item > mid ? l.push(item) : r.push(item);
+//				if(i = arra.length-1){
+//					b = [...l,mid,...r]
+//					console.log('打印的1 ->', [...l,mid,...r])
+//				}
+//				return b;
+//			},[])
+//			var arrS = sortArr(arr);
+//			console.log('打印的arrS ->', arrS)
+//			
+//
+
+//			var arr1 =[{content: "六六六", fastWord: "1"},
+//				{content: "七七七", fastWord: "2,3"},
+//				{content: "刘刘刘", fastWord: "1,2,3"}];
+//
+//			var sa = arr1.reduce((v,item)=>{
+//				let b = [];
+//				b.push(...v,item.fastWord.split(',').map(items=>({content:item.content,fastWord:items})))
+//				return b
+//			},[])
+//			
+//			console.log('打印的sa ->', sa)
+
+//			var a = 'aasdfvvvvvvvv';
+//			
+//			var b = a.split('');
+//
+//			var c = b.reduce((v,item)=> {
+//				v[item] ? v[item]++ : v[item] = 1;
+//				return v
+//			},{})
+//			console.log('打印的c ->', c)
+			
+			var arr0 = ['工单ID','工单标题','工单内容','工单优先级'];
+			var arr9 = ['工单ID','工单标题','工单内容','工单优先级'];
+			arr9.splice('0',1);
+			arr9.push('工单ID')
+			console.log('打印的arr9 ->', arr9)
+			
 			
 			
 		}

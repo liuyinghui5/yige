@@ -9,6 +9,8 @@ import lodash from '@/pages/lodash'
 import scroll from '@/pages/scrollIntoView'
 import tab from '@/pages/tabChange'
 import elementui from '@/pages/elementui'
+import elementQA from '@/pages/elementQA'
+
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +51,10 @@ export default new Router({
 			path: '/elementui',
 			name: 'elementui',
 			component: elementui
+		}, {
+			path: '/elementQA',
+			name: 'elementQA',
+			component: elementQA
 		}
 	]
 })
